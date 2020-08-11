@@ -1,0 +1,20 @@
+.users{
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-around;
+    .users-form{
+        width: 45%;
+        label{
+            margin-bottom: 10px;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+        button{
+            margin-top: 10px;
+        }
+    }
+    .users-table{
+        width: 45%;
+    }
+}

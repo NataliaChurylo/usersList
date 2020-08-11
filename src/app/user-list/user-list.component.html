@@ -1,0 +1,40 @@
+<div class="users">
+    <section class="users-form">
+        <form class="form-group">
+            <label for="login">Login</label>
+            <input type="text" [(ngModel)]="userLogin" name="userLogin" class="form-control" id="login" placeholder="Enter login">
+    
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="userPass" name="userPass" class="form-control" id="password" placeholder="Enter password">
+    
+            <label for="email">Email address</label>
+            <input type="text" [(ngModel)]="userEmail" name="userEmail" class="form-control" id="email" placeholder="Enter email">
+    
+            <button *ngIf="isAdd" type="button" class="btn btn-success btn-block" (click)="createUser()">Add user</button>
+            <button *ngIf="isEdit" type="button" class="btn btn-info btn-block" (click)="saveUser()">Save edit user</button>
+        </form>
+    </section>
+    
+    <section class="users-table">
+        <table class="table">
+            <thead>
+                <th>#</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usersArray; let i = index">
+                    <td>{{user.id + 1}}</td>
+                    <td>{{user.login}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.email}}</td>
+                    <td><button type="button" class="btn btn-warning" (click)="editUser(user,i)">Edit</button></td>
+                    <td><button [disabled]="isEdit" type="button" class="btn btn-danger" (click)="deleteUser(i)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
